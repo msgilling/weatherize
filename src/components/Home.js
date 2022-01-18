@@ -37,7 +37,10 @@ const Home = () => {
 
       </div>
       <div>
-        <form className="weather-form">
+        <form 
+          className="weather-form"
+          onSubmit={handleSubmit}
+          >
           <input
             className="location-input"
             placeholder="type your city here"
@@ -46,7 +49,7 @@ const Home = () => {
           />
           <button
             className="submit-button"
-            onSubmit={handleSubmit}
+            
           >
             Submit
           </button>
