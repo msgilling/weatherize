@@ -5,25 +5,26 @@ const Home = () => {
   const [formData, setFormData] = useState('')
   const [formSubmit, setFormSubmit] = useState('')
   const [weather, setWeather] = useState('')
-  const [error, setError] = useState(false)
+  const [hasError, setHasError] = useState(false)
 
 
   useEffect(() => {
     const getWeather = async () => {
       try {
         const { data } = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=62945e3bf23742b1955150259221701&q=${formSubmit}&days=1&aqi=no&alerts=no`)
-        console.log('response ->', data.location)
-        console.log('response ->', data.current.condition.text)
+        // console.log('response ->', data.location)
+        // console.log('response ->', data.current.condition.text)
         setWeather(data)
       } catch (err) {
-        setError(true)
+        setHasError(true)
+        console.log(err.message)
       }
     }
     getWeather()
   }, [formSubmit])
 
-  // console.log('city selected ->', weather.current.condition.text)
-  console.log('error', error)
+  console.log('city selected ->', weather)
+  console.log('error', hasError)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -36,7 +37,7 @@ const Home = () => {
     setFormData(event.target.value)
   }
 
-  return(
+  return (
 
     <div className="main-section">
       <div className="title">
@@ -44,15 +45,16 @@ const Home = () => {
 
       </div>
       <div>
-        <form 
+        <form
           className="weather-form"
           onSubmit={handleSubmit}
-          >
+        >
           <input
             className="location-input"
             placeholder="type your city here"
             name="location"
             onChange={handleChange}
+
           />
           <button
             className="submit-button"
@@ -60,18 +62,37 @@ const Home = () => {
             Submit
           </button>
         </form>
-        <div>
-          <div>
-            <p>{weather.location.name}</p>
-            <p>{weather.current.condition.text}</p>
-            <img src={weather.current.condition.icon} alt="weather-icon"/>
-            <p>{weather.current.temp_c}°</p>
-            
-
+        <div className="weather-container">
+          {weather ?
+          <>
+           <div className="city">
+            <h2>{weather.location.name}</h2>
           </div>
+          <div className="weather-description">
+            <h3>{weather.current.condition.text}</h3>
+          </div>
+          <div className="icon">
+            <img src={weather.current.condition.icon} alt="weather-icon"/>
+          </div>
+          <div className="temp">
+            <h3>{weather.current.temp_c}°</h3>
+          </div>
+        </>
+        :
+        <h3 className="title has-text-centered">
+            {hasError ? 'Oops, something has gone wrong!' : 'Fetching the weather for you...'}
+          </h3>
+        }
+
         </div>
+
       </div>
     </div>
+
+
+
+
+
   )
 }
 
