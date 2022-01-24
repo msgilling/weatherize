@@ -59,7 +59,7 @@ const Home = () => {
           </form>
 
           </div> 
-          {weather ?
+          {weather ? 
         <>
           <div className="weather-container">
             

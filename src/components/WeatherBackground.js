@@ -24,7 +24,7 @@ const WeatherBackground = () => {
     getWeather()
   }, [])
 
-  console.log('weather now is', weather.current.condition.text)
+  // console.log('weather now is', weather.current.condition.text)
 
   console.log('weather', weather.current)
   return (
