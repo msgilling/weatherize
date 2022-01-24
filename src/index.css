@@ -14,8 +14,15 @@ code {
 
 .main-section {
   display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 /* 
 .submit-button {
   padding: 10px;
 } */
+
+.currentweather-bg {
+  display: flex;
+  height: 50vh;
+}

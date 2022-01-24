@@ -21,7 +21,7 @@ const Home = () => {
   useEffect(() => {
     const getWeather = async () => {
       try {
-        const { data } = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=62945e3bf23742b1955150259221701&q=${formSubmit}&days=1&aqi=no&alerts=no`)
+        const { data } = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=62945e3bf23742b1955150259221701&q=${formSubmit}&days=1&aqi=yes&alerts=no`)
         // console.log('response ->', data.location)
         // console.log('response ->', data.current.condition.text)
         setWeather(data)
