@@ -16,13 +16,20 @@ code {
   display: flex;
   flex-direction: column;
   margin: auto;
+  align-items: center;
 }
-/* 
-.submit-button {
-  padding: 10px;
-} */
+
+
+.weather-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
 
 .currentweather-bg {
   display: flex;
-  height: 50vh;
+  height: 96vh;
+  justify-content: center;
+  
 }

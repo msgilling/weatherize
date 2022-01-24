@@ -14,7 +14,7 @@ const Home = () => {
   }
 
   const handleChange = (event) => {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     setFormData(event.target.value)
   }
 
@@ -27,14 +27,14 @@ const Home = () => {
         setWeather(data)
       } catch (err) {
         setHasError(true)
-        console.log(err.message)
+        // console.log(err.message)
       }
     }
     getWeather()
   }, [formSubmit])
 
-  console.log('city selected ->', weather)
-  console.log('error', hasError)
+  // console.log('city selected ->', weather)
+  // console.log('error', hasError)
 
 
 
