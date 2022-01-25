@@ -10,6 +10,8 @@ import partCloudyDay from '../assets/PARTCLOUDY.PNG'
 
 const WeatherBackground = () => {
   const [weather, setWeather] = useState('')
+  const myDate = new Date(null)
+  const hrs = myDate.getHouse(null)
 
   useEffect(() => {
     const getWeather = async () => {
@@ -27,10 +29,19 @@ const WeatherBackground = () => {
   // console.log('weather now is', weather.current.condition.text)
 
   console.log('weather', weather.current)
+
+  // if (hrs < 12) {
+  //   document.style.backgroundImage = 
+  // }
+
   return (
-    <div className="currentweather-bg">
-      <img src={partCloudyDay} alt="logo" className="weather-bg" />
-    </div>
+    <div className="currentweather-bg"
+      style={{
+        backgroundImage: `url(${partCloudyDay})`
+      }}
+    />
+      // {/* <img src={partCloudyDay} alt="logo" className="weather-bg" /> */}
+    // </div>
       
     
 
