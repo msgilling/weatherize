@@ -30,6 +30,7 @@ code {
 .currentweather-bg {
   display: flex;
   height: 96vh;
+  /* max-height: 100px; */
   justify-content: center;
   
 }

@@ -65,13 +65,13 @@ const Home = () => {
           {weather ? 
         <>
           <div className="weather-container">
-            
-            <div className="city">
-              <h2>{weather.location.name}</h2>
-            </div>
             <div className="weather-description">
-              <h3>{weather.current.condition.text}</h3>
+              <h2>{weather.current.condition.text}</h2>
             </div>
+            <div className="city">
+              <h3>{weather.location.name}</h3>
+            </div>
+          
             <div className="icon">
               <img src={weather.current.condition.icon} alt="weather-icon"/>
             </div>
